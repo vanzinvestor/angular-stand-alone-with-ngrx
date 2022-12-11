@@ -1,4 +1,8 @@
-# AngularStandAlone
+# Angular Stand Alone Template
+
+Ref:
+[Can Angular apps be cool again?](https://www.youtube.com/watch?v=8UqbUbLmhG0)
+[angular-notice-board](https://github.com/joshuamorony/angular-notice-board)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
