@@ -1,8 +1,26 @@
-# Angular Stand Alone Template
+# Angular 15: Stand Alone With NgRx
 
-Ref:
-[Can Angular apps be cool again?](https://www.youtube.com/watch?v=8UqbUbLmhG0)
-[angular-notice-board](https://github.com/joshuamorony/angular-notice-board)
+## Todo App
+
+Terminal 1
+
+```bash
+npm start
+```
+
+App running on [http://localhost:4200](http://localhost:4200)
+
+Terminal 2
+
+```bash
+npm run server
+```
+
+server running on [http://localhost:5000](http://localhost:5000)
+
+This project inspire from [Angular Crash Course](https://www.youtube.com/watch?v=3dHNOWTI7H8)
+
+## Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.3.
 
