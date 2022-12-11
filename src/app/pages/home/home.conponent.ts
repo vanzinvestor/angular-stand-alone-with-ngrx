@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { TodosComponent } from 'src/app/components/todos/todos.component';
 
 @Component({
   standalone: true,
-  selector: 'app-home',
-  template: `<h1>Hello Angular</h1>`,
+  template: `<app-todos></app-todos>`,
   styles: [],
+  imports: [CommonModule, TodosComponent],
 })
 export class HomeComponent implements OnInit {
   constructor() {}
