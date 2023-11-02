@@ -10,6 +10,7 @@ import {
   fromTodoSelectors,
 } from 'src/app/store/selectors';
 import { ButtonComponent } from '../button/button.component';
+import { AppState } from 'src/app/store';
 
 @Component({
   standalone: true,
@@ -39,9 +40,13 @@ import { ButtonComponent } from '../button/button.component';
 })
 export class HeaderComponent implements OnInit {
   title: string = 'Todo Tracker';
-  showAddTodo$ = this.store.select(fromTodoSelectors.selectShowAddTodo);
-  showAddBtn$ = this.store.select(fromRouterSelectors.getCurrentRoute);
-  constructor(private store: Store) {}
+  showAddTodo$!: Observable<boolean>;
+  showAddBtn$!: Observable<string>;
+
+  constructor(private store: Store<AppState>) {
+    this.showAddTodo$ = this.store.select(fromTodoSelectors.selectShowAddTodo);
+    this.showAddBtn$ = this.store.select(fromRouterSelectors.getCurrentRoute);
+  }
 
   ngOnInit(): void {}
 

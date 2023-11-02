@@ -4,16 +4,23 @@ import { fromTodoActions } from '../actions';
 
 export const todoFeatureKey = 'todos';
 
+export enum Status {
+  pending = 'pending',
+  loading = 'loading',
+  success = 'success',
+  error = 'error',
+}
+
 export interface TodoState {
   todos: ITodo[] | [];
-  status: 'pending' | 'loading' | 'success' | 'error';
+  status: Status;
   message: string | null;
   showAddTodo: boolean;
 }
 
 export const initialState: TodoState = {
   todos: [],
-  status: 'pending',
+  status: Status.pending,
   message: null,
   showAddTodo: false,
 };
@@ -27,29 +34,29 @@ export const todoReducer = createReducer(
     fromTodoActions.createTodo,
     (state, payload) => ({
       ...state,
-      status: 'loading',
+      status: Status.loading,
     })
   ),
   on(fromTodoActions.loadTodosSuccess, (state, payload) => ({
     ...state,
-    status: 'success',
+    status: Status.success,
     todos: payload.todos,
   })),
   on(fromTodoActions.deleteTodoSuccess, (state, payload) => ({
     ...state,
-    status: 'success',
+    status: Status.success,
     todos: state.todos.filter((todo) => todo.id !== payload.todo.id),
   })),
   on(fromTodoActions.updateTodoSuccess, (state, payload) => ({
     ...state,
-    status: 'success',
+    status: Status.success,
     todos: state.todos.map((todo) =>
       todo.id === payload.todo.id ? payload.todo : todo
     ),
   })),
   on(fromTodoActions.createTodoSuccess, (state, payload) => ({
     ...state,
-    status: 'success',
+    status: Status.success,
     todos: [...state.todos, payload.todo],
   })),
   on(fromTodoActions.btnAddTodoToggle, (state, payload) => ({
@@ -63,7 +70,7 @@ export const todoReducer = createReducer(
     fromTodoActions.createTodoFailure,
     (state, payload) => ({
       ...state,
-      status: 'error',
+      status: Status.error,
       message: payload.message,
     })
   )

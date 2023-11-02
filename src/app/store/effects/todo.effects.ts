@@ -16,7 +16,7 @@ export class TodoEffects {
           map(
             (todos) => fromTodoActions.loadTodosSuccess({ todos }),
             catchError((error) =>
-              of(fromTodoActions.loadTodosFailure({ message: error }))
+              of(fromTodoActions.loadTodosFailure({ message: error.message }))
             )
           )
         )
@@ -33,7 +33,7 @@ export class TodoEffects {
           map(
             () => fromTodoActions.deleteTodoSuccess({ todo }),
             catchError((error) =>
-              of(fromTodoActions.deleteTodoFailure({ message: error }))
+              of(fromTodoActions.deleteTodoFailure({ message: error.message }))
             )
           )
         )
@@ -50,7 +50,7 @@ export class TodoEffects {
           map(
             () => fromTodoActions.updateTodoSuccess({ todo }),
             catchError((error) =>
-              of(fromTodoActions.updateTodoFailure({ message: error }))
+              of(fromTodoActions.updateTodoFailure({ message: error.message }))
             )
           )
         )
@@ -67,7 +67,7 @@ export class TodoEffects {
           map(
             () => fromTodoActions.createTodoSuccess({ todo }),
             catchError((error) =>
-              of(fromTodoActions.createTodoFailure({ message: error }))
+              of(fromTodoActions.createTodoFailure({ message: error.message }))
             )
           )
         )

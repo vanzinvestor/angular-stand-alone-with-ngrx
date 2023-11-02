@@ -15,3 +15,8 @@ export const selectShowAddTodo = createSelector(
   selectFeatureTodos,
   (state: fromTodoReducers.TodoState) => state.showAddTodo
 );
+
+export const selectStatusTodo = createSelector(
+  selectFeatureTodos,
+  (state: fromTodoReducers.TodoState) => state.status
+);
